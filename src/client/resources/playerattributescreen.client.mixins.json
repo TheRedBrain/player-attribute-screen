@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "com.github.theredbrain.playerattributescreen.mixin.client",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"gui.screen.ingame.AbstractInventoryScreenMixin",
+		"gui.screen.ingame.InventoryScreenMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
