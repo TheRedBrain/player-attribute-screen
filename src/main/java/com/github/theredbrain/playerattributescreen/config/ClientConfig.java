@@ -53,9 +53,7 @@ public class ClientConfig extends PartitioningSerializer.GlobalData {
 				"ATTRIBUTE_VALUE:minecraft:generic.armor",
 				"STRING_REQUIRES_ATTRIBUTE:gui.attribute_screen.armor_toughness_line_1:minecraft:generic.armor_toughness",
 				"CUSTOM_ATTRIBUTE_VALUE:gui.attribute_screen.armor_toughness_line_2:minecraft:generic.armor_toughness",
-				"ATTRIBUTE_VALUE:minecraft:generic.luck",
-				"ATTRIBUTE_VALUE:minecraft:generic.attack_damage",
-				"ATTRIBUTE_VALUE:minecraft:generic.attack_speed"
+				"ATTRIBUTE_VALUE:minecraft:generic.luck"
 		};
 
 		public AttributeScreenClientConfig() {

@@ -3,7 +3,7 @@
 	"id": "playerattributescreen",
 	"version": "${version}",
 	"name": "Player Attribute Screen",
-	"description": "This mod adds new equipment slots and other mechanics found in popular RPGs.",
+	"description": "This mod adds a button to the player inventory screen, which toggles an additional info panel, showing a configurable list of attribute values.",
 	"authors": [
 		"TheRedBrain"
 	],
