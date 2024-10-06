@@ -61,3 +61,5 @@ Every string after the first colon is a placeholder.
 > A "ATTRIBUTE_VALUE_" means that the attribute name and the value are displayed.
 >
 > A "CUSTOM_ATTRIBUTE_VALUE_" means that a custom string is displayed instead of the attribute name.
+> 
+> If no attribute with the given identifier is found, the line is ignored.

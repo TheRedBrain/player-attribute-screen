@@ -1,11 +1,20 @@
 {
-	"gui.inventory.attributes": "Attributes",
 	"gui.inventory.toggleShowAttributeScreenButton.on.tooltip": "Hide Attribute Screen",
 	"gui.inventory.toggleShowAttributeScreenButton.off.tooltip": "Show Attribute Screen",
 	"text.autoconfig.playerattributescreen.title": "Player Attribute Screen",
 	"text.autoconfig.playerattributescreen.category.generalClientConfig": "General",
 	"text.autoconfig.playerattributescreen.option.generalClientConfig.show_attribute_screen_when_opening_inventory_screen": "Show attribute screen by default",
 	"text.autoconfig.playerattributescreen.category.attributeScreenClientConfig": "Attribute Screen",
-	"text.autoconfig.playerattributescreen.option.attributeScreenClientConfig.attribute_screen_configuration.@PrefixText": "Defines what attributes are displayed on the attribute screen\nEach string must follow one of these formats:\n\nEMPTY_LINE\nSTRING:string\nATTRIBUTE_VALUE:attribute_id_namespace:attribute_id_path\nATTRIBUTE_VALUE_DIFFERENCE_TO_BASE:attribute_id_namespace:attribute_id_path\nATTRIBUTE_VALUE_PERCENT:attribute_id_namespace:attribute_id_path\nATTRIBUTE_VALUE_DIFFERENCE_TO_BASE_PERCENT:attribute_id_namespace:attribute_id_path\nATTRIBUTE_RELATION:translation_key:attribute_id_namespace:attribute_id_path:attribute_id_namespace:attribute_id_path\n\nThe strings will be split at the positions marked by the colons.\nThe uppercase string before the first colon determines how the line is displayed.\nEvery string after the first colon is a placeholder.\nStrings with other formats are ignored.",
-	"text.autoconfig.playerattributescreen.option.attributeScreenClientConfig.attribute_screen_configuration": "Attribute Screen Configuration"
+	"text.autoconfig.playerattributescreen.option.attributeScreenClientConfig.attribute_screen_configuration.@PrefixText": "Defines what attributes are displayed on the attribute screen\nEach string must conform to a specific format.\nRead the readme file of this mod for more information",
+	"text.autoconfig.playerattributescreen.option.attributeScreenClientConfig.attribute_screen_configuration": "Attribute Screen Configuration",
+
+	"gui.attribute_screen.attributes": "Attributes",
+	"gui.attribute_screen.health_regeneration_line_1": "Health",
+	"gui.attribute_screen.health_regeneration_line_2": " Regeneration: ",
+	"gui.attribute_screen.mana_regeneration_line_1": "Mana",
+	"gui.attribute_screen.mana_regeneration_line_2": " Regeneration: ",
+	"gui.attribute_screen.stamina_regeneration_line_1": "Stamina",
+	"gui.attribute_screen.stamina_regeneration_line_2": " Regeneration: ",
+	"gui.attribute_screen.armor_toughness_line_1": "Armor",
+	"gui.attribute_screen.armor_toughness_line_2": " Toughness: "
 }

@@ -39,19 +39,23 @@ public class ClientConfig extends PartitioningSerializer.GlobalData {
 	public static class AttributeScreenClientConfig implements ConfigData {
 		@ConfigEntry.Gui.PrefixText
 		public String[] attribute_screen_configuration = {
-				"STRING:gui.inventory.attributes",
+				"STRING:gui.attribute_screen.attributes",
 				"EMPTY_LINE",
 				"ATTRIBUTE_VALUE:minecraft:generic.max_health",
-				"ATTRIBUTE_VALUE:healthregenerationoverhaul:generic.health_regeneration",
+				"STRING_REQUIRES_ATTRIBUTE:gui.attribute_screen.health_regeneration_line_1:healthregenerationoverhaul:generic.health_regeneration",
+				"CUSTOM_ATTRIBUTE_VALUE:gui.attribute_screen.health_regeneration_line_2:healthregenerationoverhaul:generic.health_regeneration",
 				"ATTRIBUTE_VALUE:manaattributes:generic.max_mana",
-				"ATTRIBUTE_VALUE:manaattributes:generic.mana_regeneration",
+				"STRING_REQUIRES_ATTRIBUTE:gui.attribute_screen.mana_regeneration_line_1:manaattributes:generic.mana_regeneration",
+				"CUSTOM_ATTRIBUTE_VALUE:gui.attribute_screen.mana_regeneration_line_2:manaattributes:generic.mana_regeneration",
 				"ATTRIBUTE_VALUE:staminaattributes:generic.max_stamina",
-				"ATTRIBUTE_VALUE:staminaattributes:generic.stamina_regeneration",
+				"STRING_REQUIRES_ATTRIBUTE:gui.attribute_screen.stamina_regeneration_line_1:staminaattributes:generic.stamina_regeneration",
+				"CUSTOM_ATTRIBUTE_VALUE:gui.attribute_screen.stamina_regeneration_line_2:staminaattributes:generic.stamina_regeneration",
 				"ATTRIBUTE_VALUE:minecraft:generic.armor",
-				"ATTRIBUTE_VALUE:minecraft:generic.armor_toughness",
-				"ATTRIBUTE_VALUE_PERCENT:overhauleddamage:generic.increased_piercing_damage",
-				"ATTRIBUTE_VALUE_DIFFERENCE_TO_BASE_PERCENT:overhauleddamage:generic.increased_slashing_damage",
-				"ATTRIBUTE_VALUE:minecraft:generic.luck"
+				"STRING_REQUIRES_ATTRIBUTE:gui.attribute_screen.armor_toughness_line_1:minecraft:generic.armor_toughness",
+				"CUSTOM_ATTRIBUTE_VALUE:gui.attribute_screen.armor_toughness_line_2:minecraft:generic.armor_toughness",
+				"ATTRIBUTE_VALUE:minecraft:generic.luck",
+				"ATTRIBUTE_VALUE:minecraft:generic.attack_damage",
+				"ATTRIBUTE_VALUE:minecraft:generic.attack_speed"
 		};
 
 		public AttributeScreenClientConfig() {
