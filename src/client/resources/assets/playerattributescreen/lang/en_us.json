@@ -1,12 +1,24 @@
 {
 	"gui.inventory.toggleShowAttributeScreenButton.on.tooltip": "Hide Attribute Screen",
 	"gui.inventory.toggleShowAttributeScreenButton.off.tooltip": "Show Attribute Screen",
-	"text.autoconfig.playerattributescreen.title": "Player Attribute Screen",
-	"text.autoconfig.playerattributescreen.category.generalClientConfig": "General",
-	"text.autoconfig.playerattributescreen.option.generalClientConfig.show_attribute_screen_when_opening_inventory_screen": "Show attribute screen by default",
-	"text.autoconfig.playerattributescreen.category.attributeScreenClientConfig": "Attribute Screen",
-	"text.autoconfig.playerattributescreen.option.attributeScreenClientConfig.attribute_screen_configuration.@PrefixText": "Defines what attributes are displayed on the attribute screen.\nEach string must conform to a specific format.\nRead the readme file of this mod for more information.\n\nNote that editing this list outside of the game via the config file might be easier.",
-	"text.autoconfig.playerattributescreen.option.attributeScreenClientConfig.attribute_screen_configuration": "Attribute Screen Configuration",
+
+	"playerattributescreen.client": "Client Side Settings",
+
+	"playerattributescreen.client.show_attribute_screen_when_opening_inventory_screen": "Show Attribute Screen By Default",
+
+	"playerattributescreen.client.attribute_screen_configuration": "Attribute Screen Configuration",
+	"playerattributescreen.client.attribute_screen_configuration.desc": "Defines what attributes are displayed on the attribute screen.\nEach string must conform to a specific format.\nRead the readme file of this mod for more information.\n\nNote that editing this list outside of the game via the config file might be easier.",
+
+	"playerattributescreen.server": "Server Side Settings",
+
+	"playerattributescreen.server.disable_player_attribute_screen": "Disable Attribute Screen",
+	"playerattributescreen.server.disable_player_attribute_screen.desc": "Disable Attribute Screen For All Connected Clients",
+
+	"playerattributescreen.server.use_attribute_screen_configuration_from_server": "Use Server Attribute Screen Configuration",
+	"playerattributescreen.server.use_attribute_screen_configuration_from_server.desc": "If set to false, the client config is used.",
+
+	"playerattributescreen.server.attribute_screen_configuration": "Attribute Screen Configuration",
+	"playerattributescreen.server.attribute_screen_configuration.desc": "Defines what attributes are displayed on the attribute screen.\nEach string must conform to a specific format.\nRead the readme file of this mod for more information.\n\nNote that editing this list outside of the game via the config file might be easier.",
 
 	"gui.attribute_screen.attributes": "Attributes",
 	"gui.attribute_screen.health_regeneration_line_1": "Health",

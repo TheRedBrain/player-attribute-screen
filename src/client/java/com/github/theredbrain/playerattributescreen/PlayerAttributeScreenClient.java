@@ -1,12 +1,9 @@
 package com.github.theredbrain.playerattributescreen;
 
 import com.github.theredbrain.playerattributescreen.config.ClientConfig;
-import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.ConfigHolder;
-import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
-import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
+import me.fzzyhmstrs.fzzy_config.api.ConfigApiJava;
+import me.fzzyhmstrs.fzzy_config.api.RegisterType;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,26 +19,18 @@ import java.util.List;
 import java.util.Optional;
 
 public class PlayerAttributeScreenClient implements ClientModInitializer {
-	public static ClientConfig clientConfig;
+	public static ClientConfig CLIENT_CONFIG = ConfigApiJava.registerAndLoadConfig(ClientConfig::new, RegisterType.CLIENT);
 
 	@Override
 	public void onInitializeClient() {
-		// Config
-		AutoConfig.register(ClientConfig.class, PartitioningSerializer.wrap(JanksonConfigSerializer::new));
-		clientConfig = AutoConfig.getConfigHolder(ClientConfig.class).getConfig();
-
-		// Packets
-		ClientPlayNetworking.registerGlobalReceiver(PlayerAttributeScreen.ServerConfigSyncPacket.PACKET_ID, (payload, context) -> {
-			PlayerAttributeScreen.serverConfig = payload.serverConfig();
-		});
 	}
 
 	public static List<MutablePair<Text, List<Text>>> getPlayerAttributeScreenData(MinecraftClient client) {
-		String[] attribute_screen_configuration;
-		if (PlayerAttributeScreen.serverConfig.generalServerConfig.use_attribute_screen_configuration_from_server) {
-			attribute_screen_configuration = PlayerAttributeScreen.serverConfig.generalServerConfig.attribute_screen_configuration;
+		List<String> attribute_screen_configuration;
+		if (PlayerAttributeScreen.SERVER_CONFIG.use_attribute_screen_configuration_from_server.get()) {
+			attribute_screen_configuration = PlayerAttributeScreen.SERVER_CONFIG.attribute_screen_configuration;
 		} else {
-			attribute_screen_configuration = PlayerAttributeScreenClient.clientConfig.attributeScreenClientConfig.attribute_screen_configuration;
+			attribute_screen_configuration = PlayerAttributeScreenClient.CLIENT_CONFIG.attribute_screen_configuration;
 		}
 		List<MutablePair<Text, List<Text>>> newData = new ArrayList<>(List.of());
 
