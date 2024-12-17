@@ -69,9 +69,9 @@ public abstract class InventoryScreenMixin extends AbstractInventoryScreen<Playe
 
 	@Inject(method = "init", at = @At("TAIL"))
 	protected void playerattributescreen$init(CallbackInfo ci) {
-		ClientConfig generalClientConfig = PlayerAttributeScreenClient.CLIENT_CONFIG;
-		this.showAttributeScreen = generalClientConfig.show_attribute_screen_when_opening_inventory_screen.get() && !PlayerAttributeScreen.SERVER_CONFIG.disable_player_attribute_screen.get();
-		this.toggleShowAttributeScreenButton = this.addDrawableChild(new ToggleInventoryScreenWidget(this.x + 146, this.y + 7, this.showAttributeScreen, true, button -> {
+		ClientConfig clientConfig = PlayerAttributeScreenClient.CLIENT_CONFIG;
+		this.showAttributeScreen = clientConfig.show_attribute_screen_when_opening_inventory_screen.get() && !PlayerAttributeScreen.SERVER_CONFIG.disable_player_attribute_screen.get();
+		this.toggleShowAttributeScreenButton = this.addDrawableChild(new ToggleInventoryScreenWidget(this.x + clientConfig.attribute_screen_button_x.get(), this.y + clientConfig.attribute_screen_button_y.get(), this.showAttributeScreen, true, button -> {
 			if (!this.recipeBook.isOpen()) {
 				this.playerattributescreen$toggleShowAttributeScreen();
 			}
@@ -162,7 +162,7 @@ public abstract class InventoryScreenMixin extends AbstractInventoryScreen<Playe
 		} else if (!this.toggleShowAttributeScreenButton.visible) {
 			this.toggleShowAttributeScreenButton.visible = true;
 		}
-		this.toggleShowAttributeScreenButton.setPosition(this.x + 146, this.y + 7);
+		this.toggleShowAttributeScreenButton.setPosition(this.x + PlayerAttributeScreenClient.CLIENT_CONFIG.attribute_screen_button_x.get(), this.y + PlayerAttributeScreenClient.CLIENT_CONFIG.attribute_screen_button_y.get());
 	}
 
 	@Unique

@@ -4,6 +4,8 @@
 
 	"playerattributescreen.client": "Client Side Settings",
 
+	"playerattributescreen.client.attribute_screen_button_x": "Attribute Screen Button Position X",
+	"playerattributescreen.client.attribute_screen_button_y": "Attribute Screen Button Position Y",
 	"playerattributescreen.client.show_attribute_screen_when_opening_inventory_screen": "Show Attribute Screen By Default",
 
 	"playerattributescreen.client.attribute_screen_configuration": "Attribute Screen Configuration",

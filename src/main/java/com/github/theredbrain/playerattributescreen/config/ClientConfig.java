@@ -6,6 +6,7 @@ import me.fzzyhmstrs.fzzy_config.config.Config;
 import me.fzzyhmstrs.fzzy_config.validation.collection.ValidatedList;
 import me.fzzyhmstrs.fzzy_config.validation.misc.ValidatedBoolean;
 import me.fzzyhmstrs.fzzy_config.validation.misc.ValidatedString;
+import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedInt;
 
 import java.util.ArrayList;
 
@@ -15,6 +16,10 @@ public class ClientConfig extends Config {
 	public ClientConfig() {
 		super(PlayerAttributeScreen.identifier("client"));
 	}
+
+	public ValidatedInt attribute_screen_button_x = new ValidatedInt(146);
+
+	public ValidatedInt attribute_screen_button_y = new ValidatedInt(7);
 
 	public ValidatedBoolean show_attribute_screen_when_opening_inventory_screen = new ValidatedBoolean(false);
 
