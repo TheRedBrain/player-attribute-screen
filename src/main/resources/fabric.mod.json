@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "playerattributescreen",
-	"version": "${version}",
+	"version": "${version}-${minecraft_version}",
 	"name": "Player Attribute Screen",
 	"description": "This mod adds a button to the player inventory screen, which toggles an additional info panel, showing a configurable list of attribute values.",
 	"authors": [

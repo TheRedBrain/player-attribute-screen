@@ -1,11 +1,5 @@
-# 1.1.0
+# 1.0.0-1.20.1
 
-- fixed status effects not showing if the attribute screen is not visible
-- removed dependency on Cloth Config
-- added dependency on Fzzy Config
-
-# 1.0.0
-
-First release!
+Backport to 1.20.1
 
 #

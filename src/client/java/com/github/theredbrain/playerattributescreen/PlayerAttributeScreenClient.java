@@ -8,7 +8,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.Registries;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -59,9 +58,9 @@ public class PlayerAttributeScreenClient implements ClientModInitializer {
 				switch (stringArray[0]) {
 					case "ATTRIBUTE_VALUE" -> {
 						Identifier attributeId = Identifier.of(stringArray[1], stringArray[2]);
-						Optional<RegistryEntry.Reference<EntityAttribute>> attribute = Registries.ATTRIBUTE.getEntry(attributeId);
+						Optional<EntityAttribute> attribute = Registries.ATTRIBUTE.getOrEmpty(attributeId);
 						if (attribute.isPresent() && player.getAttributes().hasAttribute(attribute.get())) {
-							MutableText mutableText = Text.translatable(attribute.get().value().getTranslationKey());
+							MutableText mutableText = Text.translatable(attribute.get().getTranslationKey());
 							mutableText.append(Text.of(": "));
 							mutableText.append(Text.of(Double.toString(player.getAttributeValue(attribute.get()))));
 							newText = mutableText;
@@ -70,9 +69,9 @@ public class PlayerAttributeScreenClient implements ClientModInitializer {
 					}
 					case "ATTRIBUTE_VALUE_DIFFERENCE_TO_BASE" -> {
 						Identifier attributeId = Identifier.of(stringArray[1], stringArray[2]);
-						Optional<RegistryEntry.Reference<EntityAttribute>> attribute = Registries.ATTRIBUTE.getEntry(attributeId);
+						Optional<EntityAttribute> attribute = Registries.ATTRIBUTE.getOrEmpty(attributeId);
 						if (attribute.isPresent() && player.getAttributes().hasAttribute(attribute.get())) {
-							MutableText mutableText = Text.translatable(attribute.get().value().getTranslationKey());
+							MutableText mutableText = Text.translatable(attribute.get().getTranslationKey());
 							mutableText.append(Text.of(": "));
 							double baseValue = player.getAttributes().getBaseValue(attribute.get());
 							double currentValue = player.getAttributeValue(attribute.get());
@@ -87,9 +86,9 @@ public class PlayerAttributeScreenClient implements ClientModInitializer {
 					}
 					case "ATTRIBUTE_VALUE_PERCENT" -> {
 						Identifier attributeId = Identifier.of(stringArray[1], stringArray[2]);
-						Optional<RegistryEntry.Reference<EntityAttribute>> attribute = Registries.ATTRIBUTE.getEntry(attributeId);
+						Optional<EntityAttribute> attribute = Registries.ATTRIBUTE.getOrEmpty(attributeId);
 						if (attribute.isPresent() && player.getAttributes().hasAttribute(attribute.get())) {
-							MutableText mutableText = Text.translatable(attribute.get().value().getTranslationKey());
+							MutableText mutableText = Text.translatable(attribute.get().getTranslationKey());
 							mutableText.append(Text.of(": "));
 							mutableText.append(Text.of(Double.toString(player.getAttributeValue(attribute.get()) * 100)));
 							mutableText.append(Text.of("%"));
@@ -99,9 +98,9 @@ public class PlayerAttributeScreenClient implements ClientModInitializer {
 					}
 					case "ATTRIBUTE_VALUE_DIFFERENCE_TO_BASE_PERCENT" -> {
 						Identifier attributeId = Identifier.of(stringArray[1], stringArray[2]);
-						Optional<RegistryEntry.Reference<EntityAttribute>> attribute = Registries.ATTRIBUTE.getEntry(attributeId);
+						Optional<EntityAttribute> attribute = Registries.ATTRIBUTE.getOrEmpty(attributeId);
 						if (attribute.isPresent() && player.getAttributes().hasAttribute(attribute.get())) {
-							MutableText mutableText = Text.translatable(attribute.get().value().getTranslationKey());
+							MutableText mutableText = Text.translatable(attribute.get().getTranslationKey());
 							mutableText.append(Text.of(": "));
 							double baseValue = player.getAttributes().getBaseValue(attribute.get());
 							double currentValue = player.getAttributeValue(attribute.get());
@@ -120,7 +119,7 @@ public class PlayerAttributeScreenClient implements ClientModInitializer {
 				switch (stringArray[0]) {
 					case "CUSTOM_ATTRIBUTE_VALUE" -> {
 						Identifier attributeId = Identifier.of(stringArray[2], stringArray[3]);
-						Optional<RegistryEntry.Reference<EntityAttribute>> attribute = Registries.ATTRIBUTE.getEntry(attributeId);
+						Optional<EntityAttribute> attribute = Registries.ATTRIBUTE.getOrEmpty(attributeId);
 						if (attribute.isPresent() && player.getAttributes().hasAttribute(attribute.get())) {
 							MutableText mutableText = Text.translatable(stringArray[1]);
 							mutableText.append(Text.of(Double.toString(player.getAttributeValue(attribute.get()))));
@@ -130,7 +129,7 @@ public class PlayerAttributeScreenClient implements ClientModInitializer {
 					}
 					case "CUSTOM_ATTRIBUTE_VALUE_DIFFERENCE_TO_BASE" -> {
 						Identifier attributeId = Identifier.of(stringArray[2], stringArray[3]);
-						Optional<RegistryEntry.Reference<EntityAttribute>> attribute = Registries.ATTRIBUTE.getEntry(attributeId);
+						Optional<EntityAttribute> attribute = Registries.ATTRIBUTE.getOrEmpty(attributeId);
 						if (attribute.isPresent() && player.getAttributes().hasAttribute(attribute.get())) {
 							MutableText mutableText = Text.translatable(stringArray[1]);
 							double baseValue = player.getAttributes().getBaseValue(attribute.get());
@@ -146,7 +145,7 @@ public class PlayerAttributeScreenClient implements ClientModInitializer {
 					}
 					case "CUSTOM_ATTRIBUTE_VALUE_PERCENT" -> {
 						Identifier attributeId = Identifier.of(stringArray[2], stringArray[3]);
-						Optional<RegistryEntry.Reference<EntityAttribute>> attribute = Registries.ATTRIBUTE.getEntry(attributeId);
+						Optional<EntityAttribute> attribute = Registries.ATTRIBUTE.getOrEmpty(attributeId);
 						if (attribute.isPresent() && player.getAttributes().hasAttribute(attribute.get())) {
 							MutableText mutableText = Text.translatable(stringArray[1]);
 							mutableText.append(Text.of(Double.toString(player.getAttributeValue(attribute.get()) / 100)));
@@ -157,7 +156,7 @@ public class PlayerAttributeScreenClient implements ClientModInitializer {
 					}
 					case "CUSTOM_ATTRIBUTE_VALUE_DIFFERENCE_TO_BASE_PERCENT" -> {
 						Identifier attributeId = Identifier.of(stringArray[2], stringArray[3]);
-						Optional<RegistryEntry.Reference<EntityAttribute>> attribute = Registries.ATTRIBUTE.getEntry(attributeId);
+						Optional<EntityAttribute> attribute = Registries.ATTRIBUTE.getOrEmpty(attributeId);
 						if (attribute.isPresent() && player.getAttributes().hasAttribute(attribute.get())) {
 							MutableText mutableText = Text.translatable(stringArray[1]);
 							double baseValue = player.getAttributes().getBaseValue(attribute.get());
@@ -174,7 +173,7 @@ public class PlayerAttributeScreenClient implements ClientModInitializer {
 					}
 					case "STRING_REQUIRES_ATTRIBUTE" -> {
 						Identifier attributeId = Identifier.of(stringArray[2], stringArray[3]);
-						Optional<RegistryEntry.Reference<EntityAttribute>> attribute = Registries.ATTRIBUTE.getEntry(attributeId);
+						Optional<EntityAttribute> attribute = Registries.ATTRIBUTE.getOrEmpty(attributeId);
 						if (attribute.isPresent() && player.getAttributes().hasAttribute(attribute.get())) {
 							newText = Text.translatable(stringArray[1]);
 //						newToolTipList = new ArrayList<>(List.of());
@@ -185,7 +184,7 @@ public class PlayerAttributeScreenClient implements ClientModInitializer {
 				switch (stringArray[0]) {
 					case "CUSTOM_ATTRIBUTE_VALUE_POST_STRING" -> {
 						Identifier attributeId = Identifier.of(stringArray[2], stringArray[3]);
-						Optional<RegistryEntry.Reference<EntityAttribute>> attribute = Registries.ATTRIBUTE.getEntry(attributeId);
+						Optional<EntityAttribute> attribute = Registries.ATTRIBUTE.getOrEmpty(attributeId);
 						if (attribute.isPresent() && player.getAttributes().hasAttribute(attribute.get())) {
 							MutableText mutableText = Text.translatable(stringArray[1]);
 							mutableText.append(Text.of(Double.toString(player.getAttributeValue(attribute.get()))));
@@ -196,7 +195,7 @@ public class PlayerAttributeScreenClient implements ClientModInitializer {
 					}
 					case "CUSTOM_ATTRIBUTE_VALUE_DIFFERENCE_TO_BASE_POST_STRING" -> {
 						Identifier attributeId = Identifier.of(stringArray[2], stringArray[3]);
-						Optional<RegistryEntry.Reference<EntityAttribute>> attribute = Registries.ATTRIBUTE.getEntry(attributeId);
+						Optional<EntityAttribute> attribute = Registries.ATTRIBUTE.getOrEmpty(attributeId);
 						if (attribute.isPresent() && player.getAttributes().hasAttribute(attribute.get())) {
 							MutableText mutableText = Text.translatable(stringArray[1]);
 							double baseValue = player.getAttributes().getBaseValue(attribute.get());
@@ -216,8 +215,8 @@ public class PlayerAttributeScreenClient implements ClientModInitializer {
 				if (stringArray[0].equals("ATTRIBUTE_RELATION")) {
 					Identifier firstAttributeId = Identifier.of(stringArray[2], stringArray[3]);
 					Identifier secondAttributeId = Identifier.of(stringArray[4], stringArray[5]);
-					Optional<RegistryEntry.Reference<EntityAttribute>> firstAttribute = Registries.ATTRIBUTE.getEntry(firstAttributeId);
-					Optional<RegistryEntry.Reference<EntityAttribute>> secondAttribute = Registries.ATTRIBUTE.getEntry(secondAttributeId);
+					Optional<EntityAttribute> firstAttribute = Registries.ATTRIBUTE.getOrEmpty(firstAttributeId);
+					Optional<EntityAttribute> secondAttribute = Registries.ATTRIBUTE.getOrEmpty(secondAttributeId);
 					if (firstAttribute.isPresent() && secondAttribute.isPresent() && player.getAttributes().hasAttribute(firstAttribute.get()) && player.getAttributes().hasAttribute(secondAttribute.get())) {
 						MutableText mutableText = Text.translatable(stringArray[1]);
 						mutableText.append(Text.of(Double.toString(player.getAttributeValue(firstAttribute.get()))));

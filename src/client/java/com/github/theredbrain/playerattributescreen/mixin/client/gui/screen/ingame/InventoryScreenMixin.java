@@ -135,7 +135,7 @@ public abstract class InventoryScreenMixin extends AbstractInventoryScreen<Playe
 	}
 
 	@Override
-	public boolean mouseScrolled(double mouseX, double mouseY, double horizontalAmount, double verticalAmount) {
+	public boolean mouseScrolled(double mouseX, double mouseY, double verticalAmount) {
 		int scrollAreaStartX = this.x + this.backgroundWidth + 7;
 		int scrollAreaWidth = 116;
 		int scrollAreaStartY = this.y + 7;
