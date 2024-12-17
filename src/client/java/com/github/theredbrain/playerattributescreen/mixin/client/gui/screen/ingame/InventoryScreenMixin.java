@@ -3,6 +3,7 @@ package com.github.theredbrain.playerattributescreen.mixin.client.gui.screen.ing
 import com.github.theredbrain.playerattributescreen.PlayerAttributeScreen;
 import com.github.theredbrain.playerattributescreen.PlayerAttributeScreenClient;
 import com.github.theredbrain.playerattributescreen.config.ClientConfig;
+import com.github.theredbrain.playerattributescreen.gui.screen.ingame.DuckAbstractInventoryScreenMixin;
 import com.github.theredbrain.playerattributescreen.gui.widget.ToggleInventoryScreenWidget;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
@@ -31,7 +32,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Mixin(InventoryScreen.class)
-public abstract class InventoryScreenMixin extends AbstractInventoryScreen<PlayerScreenHandler> implements RecipeBookProvider {
+public abstract class InventoryScreenMixin extends AbstractInventoryScreen<PlayerScreenHandler> implements RecipeBookProvider, DuckAbstractInventoryScreenMixin {
 	@Unique
 	private static final Identifier INVENTORY_SIDES_BACKGROUND_TEXTURE = PlayerAttributeScreen.identifier("textures/gui/container/inventory_sides_background.png");
 	@Unique
@@ -200,5 +201,10 @@ public abstract class InventoryScreenMixin extends AbstractInventoryScreen<Playe
 			int k = (int) (135.0f * this.attributeScrollAmount);
 			context.drawTexture(SCROLLER_VERTICAL_6_15_TEXTURE, x + 109, y + 1 + k, 0, 0, 6, 15, 6, 15);
 		}
+	}
+
+	@Override
+	public boolean playerattributescreen$hideStatusEffects() {
+		return this.showAttributeScreen;
 	}
 }

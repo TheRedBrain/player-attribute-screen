@@ -20,7 +20,6 @@ public abstract class AbstractInventoryScreenMixin implements DuckAbstractInvent
 
 	@Override
 	public boolean playerattributescreen$hideStatusEffects() {
-		return true;
+		return false;
 	}
-
 }
